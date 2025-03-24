@@ -116,4 +116,6 @@ Describe the major technical or non-technical challenges your team encountered.
 
 ## 👥 Team
 - **Phani Kumar Kolla** - [GitHub](#) | [LinkedIn](#)
-- **Teammate 2** - [GitHub](#) | [LinkedIn](#)
+- **Parikshit More** - [GitHub](#) | [LinkedIn](#)
+- **Anirudh Yadav** - [GitHub](#) | [LinkedIn](#)
+- **Aishwarya** - [GitHub](#) | [LinkedIn](#)
