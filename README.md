@@ -1,4 +1,4 @@
-# 🚀 Project Name
+# 🚀 Gen AI Data Profiling
 
 ## 📌 Table of Contents
 - [Introduction](#introduction)
