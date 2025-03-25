@@ -7,6 +7,11 @@ from remediation_action import generate_remediation_actions
 def process_regulatory_data_profiling(instructions_file, transaction_file):
     # Load instructions
     instructions_data = load_csv_instructions(instructions_file)
+    # This code loads regulatory instructions from a CSV file using the load_csv_instructions function
+# The loaded instructions are stored in instructions_data
+# Each instruction document has a page_content field that contains the actual instruction text
+# All instruction texts are joined together with spaces into a single string instructions_text
+    instructions_data = load_csv_instructions(instructions_file)
     instructions_text = " ".join([doc.page_content for doc in instructions_data])
     
     # Generate rules

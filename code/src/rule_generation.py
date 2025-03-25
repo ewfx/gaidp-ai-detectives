@@ -5,8 +5,7 @@ import numpy as np
 # This function uses the Titan Foundation model to generate data profiling rules based on the provided regulatory instructions, 
 # specifying the required fields, conditions, and validation types.
 
-def generate_profiling_rules(instructions, model_id="amazon.titan-text-premier-v1:0"):
-    bedrock_client = boto3.client(service_name='bedrock-runtime')
+def generate_profiling_rules(instructions, model_id="amazon.titan-text-express-v1"):
     
     prompt = f"""
     Based on the following regulatory reporting instructions, generate data profiling rules:
@@ -24,7 +23,7 @@ def generate_profiling_rules(instructions, model_id="amazon.titan-text-premier-v
     body = json.dumps({
         "inputText": prompt,
         "textGenerationConfig": {
-            "maxTokenCount": 2048,
+            "maxTokenCount": 8192,
             "temperature": 0.2,
             "topP": 0.9
         }

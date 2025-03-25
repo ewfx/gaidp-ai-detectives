@@ -3,7 +3,10 @@ import pandas as pd
 import requests
 import json
 import boto3
+from botocore.auth import SigV4Auth
 from requests_aws4auth import AWS4Auth
+from botocore.awsrequest import AWSRequest
+from urllib.parse import urlencode
 import os
 
 # This Streamlit application provides a user-friendly interface for uploading instruction and transaction files, 
@@ -51,41 +54,57 @@ if st.button("Generate Rules and Remediation Actions") and instructions_file and
         
         s3_client.upload_file("temp_instructions.csv", bucket_name, "instructions.csv")
         s3_client.upload_file("temp_transactions.csv", bucket_name, "transactions.csv")
-        
         # Call API Gateway endpoint
-        api_url = "https://kz8vyrawe3.execute-api.us-east-1.amazonaws.com/dev/"
         
-        # Get AWS credentials from boto3 session
-        credentials = boto3.Session().get_credentials()
+        # API Gateway settings
+        api_url = "https://kz8vyrawe3.execute-api.us-east-1.amazonaws.com/dev/"
         region = 'us-east-1'
+        service = 'execute-api'
 
-        # Create AWS4Auth instance
-        auth = AWS4Auth(
-            credentials.access_key,
-            credentials.secret_key,
-            region,
-            'execute-api',
-            session_token=credentials.token
-        )
+        # Get credentials
+        session = boto3.Session()
+        credentials = session.get_credentials()
 
+        # Your existing payload
         payload = {
             "instructions_file": "instructions.csv",
             "transaction_file": "transactions.csv"
         }
+
+        headers = {
+            'x-api-key': 'jtJ5f9ROl12MNPpqL5TP8aBmBeeBjVuM2eyHQotb',  # Replace with your actual API key
+            'Content-Type': 'application/json'
+        }
+
+        # Create and sign the request
+        # Create request with proper URL
+
+        request = AWSRequest(
+            method='POST',
+            url=api_url,
+            data=json.dumps(payload),
+            headers=headers
+        )
         
-        response = requests.post(api_url, json=payload)
+        SigV4Auth(credentials, service, region).add_auth(request)
+        signed_headers = dict(request.headers)
+
+        # Make the request with your payload
+        response = requests.post(request.url, headers=signed_headers, json=payload)
         
         if response.status_code == 200:
             result = response.json()
-            
+            print(result)
             # Display tabs for different result sections
             tab1, tab2, tab3 = st.tabs(["Generated Rules", "Violations", "Remediation Actions"])
             
             with tab1:
                 st.header("Generated Profiling Rules")
-                st.text_area("Rules", result['rules'], height=300)
-                
-                # Display structured rules in a table
+                # Add error handling for missing 'rules' key
+                if 'rules' in result:
+                    st.text_area("Rules", result['rules'], height=300)
+                else:
+                    st.text_area("Rules", "No rules found in response", height=300)                # Display structured rules in a table
                 st.subheader("Structured Rules")
                 rules_df = pd.DataFrame(result.get('structured_rules', []))
                 st.dataframe(rules_df)
