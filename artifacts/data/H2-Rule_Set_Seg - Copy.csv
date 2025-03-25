@@ -1,0 +1,73 @@
+﻿Field No.,Field Name,MDRM,Allowable Values,Mandatory/ Optional/NA
+1,Loan Number,G063,"Must be unique within a submission and over time; no carriage return, line feed, comma, or unprintable characters",Mandatory
+49,Troubled Debt Restructuring,,"Must be : 1(No), 2(Yes).",Mandatory
+3,a,K448,"Must be a numeric whole dollar amount(No cents, commas, or symbols). Fully undrawn and disposed credit facilities must be reported as 0.",Mandatory
+4,Line Reported on FR Y-9C,K449,Must be an integer corresponding to a valid FR Y-9C line number. Only Allowable values should be used. ,Mandatory
+5,Committed Exposure Global 29,G074,"Must be a numeric whole dollar amount(No cents, commas, or symbols). Rounded whole dollar value. Only report the entitiy's portion in case of multiple vendors.",Mandatory
+6,Cumulative Charge-offs,G076,"Must be a whole number; no dollar sign, commas, or decimal points. Use '0' if no charge-off. Use 'NA' for loans held for sale or fair value option.",Mandatory
+7,Participation Flag,6135,"Must be one of the following integer values: 1(No), 2(Syndicate Participant), 3(Agent in Syndication), 4(Syndicate in Shared National Credit), 5 (Agent in Shared National Credit)",Mandatory
+8,Lien Position,K450,"Must be one of the following integer values: 1(First Lien), 2(Subordinate Lien), 3(Mixed Liens), 5 (B-Note).",Mandatory
+9,Property Type,K451,"Must be one of the following integer values: 1(Retail), 2(Industrial), 3(Hotel), 4( Multi-Family), 5 (Homebuilders), 6(Condo),7(Office), 8(Mixed). 9(Land Development), 10(Other), 11(Healthcare), 12(Warehouse)",Mandatory
+60,Leveraged Loan Flag,,"Must be : 1(No), 2(Yes).",Mandatory
+11,Location,K453,Must be a valid 5-digit ZIP code(US) or 2-letter ISO country code (Foreign). Use 'Multiple' for mixed locations.,Mandatory
+12,Net Operating Income at Origination,K454,Must be a numeric whole dollar amount. Use'-' for negative values. Use '0' for zero NOI. Use 'NA' for land/construction loans with no income.,Mandatory
+13,Value at Origination,M148,"Must be a numeric whole dollar amount with no non-numeric formatting(commas, dollar signs, decimals).",Mandatory
+30,Interest Rate Ceiling,K464,"Must be a decimal (e.g., 0.0575 for 5.75%). Use 'NONE' if not applicable.",Mandatory
+15,Internal Rating,G080,Must be a valid internal rating code followed by a fraction of total exposure. Rating must sum to 1.,Mandatory
+16,Probability of Default (PD),G082,"Must be expressed as a decimal to 4 places (E.g., 50% is 0.5000). Use 'NA' if not assigned. ",Mandatory
+17,Loss Given Default(LGD),G086,"Must be expressed as a decimal to 2 places (e.g., 50% is 0.50). Use 'NA' if not assigned. ",Mandatory
+31,Interest Rate Floor,K465,"Must be a decimal (e.g., 0.0575 for 5.75%). Use 'NONE' if not applicable.",Mandatory
+54,Renewal Date,,Must be a valid date in yyyy-mm-dd format.,Mandatory
+20,Amortization,K457,"Must be in whole months. Use '-1' for non-standard schedules, '0' for interest-only loans. ",Mandatory
+21,Recourse,G106,"Must be an integer: 3(Full), 4 (Partial), 5 (None).",Mandatory
+22,Line of Business,K458,Must match an internal line of business from schedule H-3.,Optional
+23,Current Occupancy,K459,"Must be a decimal fraction(e.g., 0.90 for 80%). Use 'NA' if not applicable.",Mandatory
+56,Current Occupancy Date ,,Must be a valid date in yyyy-mm-dd format.,Mandatory
+25,Loan Purpose,G073,Must be an integer from the predefined list of loan purposes.,Mandatory
+26,Interest Rate Variability,K461,"Must be an integer: 1(Fixed), 2(Floating), 3(Mixed), 4(Fee-Based).",Mandatory
+27,Interest Rate,7889,"Must be a decimal (e.g., 0.0575 for 5.75%). Use 'NA' if facility is fee-based.",Mandatory
+28,Interest Rate Index,K462,"Must be an integer: 1(LIBOR), 2(PRIME), 3(Treasury), 4(Other), 5(Not Applicable), 6(Mixed), 7(SOFR).",Mandatory
+29,Interest Rate Spread,K463,"Must be a decimal fraction(e.g., 0.0050 for 50 bps). Use 'NA' if fixed.",Mandatory
+65,Current Maturity Date,,Must be a valid date in yyyy-mm-dd format.,Mandatory
+10,Origination Date,9912,Must be a valida date in yyyy-mm-dd format.,Mandatory
+32,Frequency of Rate Reset,K466,Must be an integer(Whole Months). Use 'NA' if fixed.,Mandatory
+33,Interest Reserves,K467,Must be a whole dollar amount. Use '0' if not applicable.,Mandatory
+19,Maturity Date,9914,Must be a valida date in yyyy-mm-dd format.,Mandatory
+35,Original/Previ ous Loan Number,G064,Must match the previous submission's loan number format.,Mandatory
+36,Acquired Loan,K469,"Must be an integer: 1(Yes), 2(No).",Mandatory
+37,# Days Principal or Interest Past Due,G077,Must be a whole number(0 if not past due).,Mandatory
+38,Non-Accrual Date,G078,Must be a valida date in yyyy-mm-dd format.Use '0000-12-31' if not applicable.,Mandatory
+39,Property Size,K471,Must be a whole number.Use 'NA; for multiple properties. ,Mandatory
+40,Net Operating,K472,"Must be a whole number:(No commas, decimals).",Mandatory
+41,Last NOI Date,K473,Must be a valida date in yyyy-mm-dd format.Must be before or equal to report date.,Mandatory
+42,Current Value,M209,Must be a whole dollar amount without formatting.,Mandatory
+43,Last Valuation Date,K475,Must be a valid date in yyyy-mm-dd format.Must be before or equal to report date.,Mandatory
+44,Cross Collateralized Loan Numbers,M290,Provide valid loan numbers separated by commas.,Mandatory
+45,Additional Collateral,M291,Must be a whole dollar amount. ,Optional
+46,DO NOT USE,,,NA
+47,DO NOT USE,,,NA
+48,DO NOT USE,,,NA
+63,ASC326-20,,Must be a whole dollar amount,Mandatory
+50,DO NOT USE,,,NA
+51,DO NOT USE,,,NA
+52,Lower of Cost or Market Flag,,"Must be : 1(LOCOM), 2(FVO), 3(NA).",Mandatory
+53,SNC Internal Credit ID,,Must be a valid alphanumeric ID or 'NA'.,Mandatory
+64,Purchased Credit Deteriorated Noncredit Discount,,Must be a whole dollar amount,Mandatory
+55,Credit Facility Currency,,Must be a valid ISO 4217 currency code.,Mandatory
+66,Committed Exposure Global Par Value,,Must be a whole dollar amount or 'NA'.,Mandatory
+67,Outstanding Balance Par Value,,Must be a whole dollar amount or 'NA'.,Mandatory
+58,Prepayment Penalty Flag,,"Must be an integer: 1(Yes), 2(Expired), 3(No).",Mandatory
+59,Participation Interest,,Must be a decimal to 4 places.,Mandatory
+68,Committed Exposure Global Fair Value,,Must be a whole dollar amount or 'NA'.,Mandatory
+61,Disposition Flag,,Must be an integer between 0-7.,Mandatory
+62,Disposition Schedule Shift,,Must match format 'Q.H.1' or 'M.A.1'.,Mandatory
+69,Outstanding Balance Fair Value,,Must be a whole dollar amount or 'NA'.,Mandatory
+18,Exposure At Default(EAD),G083,Must be a whole dollar amount with no formatting. Use 'NA' if not assigned.,Mandatory
+34,Origination Amount,K468,Must be a whole dollar amount with no formatting. Use 'NA' if not assigned.,Mandatory
+14,Value Basis,K456,"Must be an integer: 1(As Is), 2(As Stabilized), 3(As Completed).",Mandatory
+57,Current Value Basis,,"Must be an integer: 1(As Is), 2(As Stabilized), 3(As Completed).",Mandatory
+2,Obligator Name,9017,"Must not contain vertical bar (I), carriage return, line feed, comma, or unprintable characters",Mandatory
+24,Anchor Tenant,K460,"Must not contain vertical bar (I), carriage return, line feed, comma, or unprintable characters",Optional
+70,DO NOT USE,,,NA
+71,DO NOT USE,,,NA
+72,Obligor LEI,,Must be a valid 20 character LEI or 'NA'.,Mandatory
