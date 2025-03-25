@@ -3,6 +3,7 @@ import pandas as pd
 import requests
 import json
 import boto3
+from requests_aws4auth import AWS4Auth
 import os
 
 # This Streamlit application provides a user-friendly interface for uploading instruction and transaction files, 
@@ -54,6 +55,19 @@ if st.button("Generate Rules and Remediation Actions") and instructions_file and
         # Call API Gateway endpoint
         api_url = "https://kz8vyrawe3.execute-api.us-east-1.amazonaws.com/dev/"
         
+        # Get AWS credentials from boto3 session
+        credentials = boto3.Session().get_credentials()
+        region = 'us-east-1'
+
+        # Create AWS4Auth instance
+        auth = AWS4Auth(
+            credentials.access_key,
+            credentials.secret_key,
+            region,
+            'execute-api',
+            session_token=credentials.token
+        )
+
         payload = {
             "instructions_file": "instructions.csv",
             "transaction_file": "transactions.csv"
