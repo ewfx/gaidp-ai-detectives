@@ -1,4 +1,4 @@
-# 🚀 Regulatory Data Profiling Automation using GEN AI
+# 🚀 Regulatory Data Profiling using GEN AI
 
 [![AWS Bedrock](https://img.shields.io/badge/AWS-Bedrock-FF9900?logo=amazonaws)](https://aws.amazon.com/bedrock/)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python)](https://www.python.org/)
@@ -16,14 +16,13 @@ Automated compliance solution that transforms regulatory documents into executab
 3. [System Architecture](#system-architecture)
 4. [Technology Stack](#technology-stack)
 5. [AWS Services and Components](#aws-services-and-components)
-6. [Challenges We Faced](#challenges-we-faced)
-7. [Prerequisites](#prerequisites)
-8. [Usage Instructions](#usage-instructions)
-9. [Contributing](#contributing)
+6. [Prerequisites](#prerequisites)
+7. [Usage Instructions](#usage-instructions)
+8. [Contributing](#contributing)
+9. [How we Built](#how-we-built)
 10. [How to Run](#how-to-run)
-11. [Tech Stack](#tech-stack)
-12. [Contributing](#contributing)
-13. [Team](#team)
+11. [Challenges We Faced](#challenges-we-faced)
+12. [Team](#team)
 
 ---
 
@@ -57,7 +56,7 @@ Streamlit Dashboard ← Results Storage
 
 ---
 
-## Technology Stack
+## 🏗️ Technology Stack
 | Component          | Technology                 |
 |--------------------|----------------------------|
 | Document Processing| AWS Textract, PyPDF2       |
@@ -66,6 +65,17 @@ Streamlit Dashboard ← Results Storage
 | Storage            | Amazon S3, DynamoDB        |
 | UI Framework       | Streamlit                  |
 | Validation Engine  | Pandas, PySpark            |
+
+---
+
+## AWS Services and Components
+
+1) **AWS Lambda** : Serverless computing for processing documents and generating rules
+2) **API Gateway** : RESTful API interface for communication between components
+3) **Amazon S3** : Storage for instruction documents and transaction data
+4) **AWS Bedrock** : For accessing the Titan Foundation and Titan Text Embedding models
+5) **Streamlit** : For building the user interface
+6) **FAISS** : Vector database for efficient similarity search and embeddings storage
 
 ---
 
@@ -112,17 +122,8 @@ git checkout -b feature/new-validation-method
 
 ---
 
-## AWS Services and Components
-
-1) **AWS Lambda** : Serverless computing for processing documents and generating rules
-2) **API Gateway** : RESTful API interface for communication between components
-3) **Amazon S3** : Storage for instruction documents and transaction data
-4) **AWS Bedrock** : For accessing the Titan Foundation and Titan Text Embedding models
-5) **Streamlit** : For building the user interface
-6) **FAISS** : Vector database for efficient similarity search and embeddings storage
-
 ## 🎥 Demo
-🔗 [Live Demo](./artifacts/demo/AIDetectives.mp4)  
+🔗 [Live Demo] ![Demo](./artifacts/demo/AIDetectives.mp4)  
 🖼️ Screenshots:
 
 ![Screenshot 1](link-to-image)
@@ -147,12 +148,6 @@ Describe the major technical or non-technical challenges your team encountered.
    ```sh
    npm start  # or python app.py
    ```
-
-## 🏗️ Tech Stack
-- 🔹 Frontend: React / Vue / Angular
-- 🔹 Backend: Node.js / FastAPI / Django
-- 🔹 Database: PostgreSQL / Firebase
-- 🔹 Other: OpenAI API / Twilio / Stripe
 
 ## 👥 Team
 - **Phani Kumar Kolla** - [GitHub](#) | [LinkedIn](#)
