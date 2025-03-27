@@ -1,3 +1,145 @@
+# Regulatory Data Profiling Automation
+
+[![AWS Bedrock](https://img.shields.io/badge/AWS-Bedrock-FF9900?logo=amazonaws)](https://aws.amazon.com/bedrock/)
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python)](https://www.python.org/)
+[![Serverless](https://img.shields.io/badge/Architecture-Serverless-FD5750)](https://aws.amazon.com/serverless/)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Python Version](https://img.shields.io/badge/python-3.9%2B-blue)
+
+Automated compliance solution that transforms regulatory documents into executable data quality rules for banking institutions.
+
+---
+
+## Table of Contents
+1. [Project Overview](#project-overview)
+2. [Key Features](#key-features)
+3. [Key Pain Points in Traditional Regulatory Data Profiling](#key-points-in-traditional-regulatory-data-profiling)
+4. [System Architecture](#system-architecture)
+5. [Technology Stack](#technology-stack)
+6. [Prerequisites](#prerequisites)
+7. [Installation Guide](#installation-guide)
+8. [Usage Instructions](#usage-instructions)
+9. [Directory Structure](#directory-structure)
+10. [Contributing](#contributing)
+11. [Contact](#contact)
+
+---
+
+## Project Overview
+A serverless solution that automates:
+- Extraction of regulatory requirements from documents (PDF/Word)
+- Generation of data validation rules using AWS Bedrock's Titan models
+- Application of rules to transaction datasets
+- Generation of remediation suggestions for compliance violations
+
+---
+
+## Key Features
+- **AI-Powered Rule Generation**: Convert regulatory text to executable validation rules
+- **Multi-Format Support**: Process PDF, DOCX, and CSV files
+- **Serverless Architecture**: AWS Lambda-based processing pipeline
+- **Compliance Dashboard**: Streamlit web interface for results visualization
+- **Audit Trail**: Full documentation of rule generation process
+
+---
+
+## System Architecture
+
+Regulatory Documents → AWS S3 → Text Extraction → LLM Processing → Rule Generation
+↓
+Transaction Data → Validation Engine → Anomaly Detection → Remediation Suggestions
+↓
+Streamlit Dashboard ← Results Storage
+
+![Arch](./artifacts/arch/GenAIDP_Hackathon25.gif)
+
+---
+
+## Technology Stack
+| Component          | Technology                 |
+|--------------------|----------------------------|
+| Document Processing| AWS Textract, PyPDF2       |
+| AI/ML              | AWS Bedrock (Titan)        |
+| Compute            | AWS Lambda                 |
+| Storage            | Amazon S3, DynamoDB        |
+| UI Framework       | Streamlit                  |
+| Validation Engine  | Pandas, PySpark            |
+
+---
+
+## Prerequisites
+1. AWS account with Bedrock access
+2. Python 3.9+ environment
+3. AWS CLI configured with admin privileges
+4. Minimum 2GB RAM for local testing
+
+---
+
+## Installation Guide
+1. Clone repository:
+
+git clone https://github.com/phanikolla/gaidp-ai-detectives.git
+
+cd gaidp-ai-detectives
+
+2. Create virtual environment:
+
+python -m venv venv
+
+source venv/bin/activate # Windows: venv\Scripts\activate
+
+3. Install dependencies:
+
+pip install -r requirements.txt
+
+4. Configure AWS credentials:
+
+aws configure --profile default
+
+---
+
+## Usage Instructions
+### Step 1: Document Upload
+
+from src.ingestion import upload_regulatory_doc
+
+upload_regulatory_doc('path/to/regulation.pdf', bucket='your-s3-bucket')
+
+### Step 2: Rule Generation
+
+python src/rule_generation/generate_rules.py --document regulation.pdf
+
+### Step 3: Data Validation
+from src.application import validate_transactions
+results = validate_transactions('transactions.csv', rules_version='v1.0')
+
+### Step 4: View Results
+
+streamlit run src/front_end.py
+
+---
+
+## Contributing
+1. Fork the repository
+2. Create feature branch:
+
+git checkout -b feature/new-validation-method
+
+3. Add tests for new features
+4. Submit pull request using the template
+5. Ensure all tests pass:
+
+---
+
+## Contact
+**Developer/Solutions Architect**: [Phani Kumar]  
+**Email**: pkkolla24@gmail.com  
+**Issue Tracker**: [GitHub Issues](https://github.com/phanikolla/gaidp-ai-detectives/issues)  
+
+---
+
+
+
 # 🚀 Gen AI Data Profiling
 
 ## 📌 Table of Contents
@@ -14,49 +156,6 @@
 - [Team](#team)
 
 ---
-
-## 🎯 Introduction
-This comprehensive solution leverages Generative AI and unsupervised machine learning to automate data profiling for regulatory reporting in banking, transforming manual rule definition into an intelligent, adaptive system that ensures compliance while reducing operational overhead.
-
-## Understanding the Challenge
-
-Regulatory reporting in banking involves compiling vast amounts of data to meet compliance requirements. Data profiling—ensuring reported data aligns with regulatory instructions—traditionally requires manual rule definition based on underlying data and regulatory requirements. 
-
-This hackathon challenge aims to automate this process using Generative AI (LLMs) and unsupervised machine learning to generate data profiling rules and suggest remediation actions based on regulatory reporting instructions.
-
-The process is labor-intensive, error-prone, and difficult to scale across multiple regulations. Manual data profiling creates inconsistencies in rule application and limits the ability to quickly adapt to changing regulatory requirements. 
-
-By automating this process, financial institutions can significantly reduce compliance risks, improve efficiency, and ensure consistent reporting across different regulatory frameworks.
-
-## Key Pain Points in Traditional Regulatory Data Profiling
-
-1) Time-consuming manual rule definition process
-2) Inconsistent rule application across different teams
-3) Difficulty keeping up with changing regulatory requirements
-4) Limited scalability for large datasets and multiple regulations
-5) High risk of human error in rule definition and application
-
-## Innovative Solution Concepts
-
-1) AI-Powered Regulatory Rule Extraction
-
-The solution will use Large Language Models to automatically parse regulatory documents and extract precise data profiling rules. By leveraging natural language processing capabilities, the system can understand complex regulatory language and convert it into structured, actionable rules without human intervention.
-
-2) Unsupervised Anomaly Detection for Data Quality
-
-Incorporating unsupervised machine learning algorithms to detect patterns and anomalies in transaction data that might violate regulatory requirements. This approach can identify potential compliance issues that might not be explicitly covered by existing rules, adding an additional layer of protection.
-
-3) Self-Learning Rule Optimization
-
-The system will continuously learn from remediation actions and feedback to improve rule generation over time. This creates a virtuous cycle where the quality of generated rules improves with each iteration, making the solution more effective and reducing the need for manual intervention.
-
-4) Explainable AI for Compliance Transparency
-
-All generated rules and remediation actions will include clear explanations of their regulatory basis, ensuring transparency and auditability. This is critical for regulatory compliance in banking where decisions must be explainable to both internal and external auditors.
-
-## Technical Architecture
-
-The solution architecture leverages AWS services and the specific tools you've requested to create a scalable, secure system for regulatory data profiling automation.
 
 ## High-Level Architecture
 
@@ -77,16 +176,10 @@ The solution architecture leverages AWS services and the specific tools you've r
 
 ## 🎥 Demo
 🔗 [Live Demo](#) (if applicable)  
-📹 [Video Demo](#) (if applicable)  
 🖼️ Screenshots:
 
 ![Screenshot 1](link-to-image)
 
-## 💡 Inspiration
-What inspired you to create this project? Describe the problem you're solving.
-
-## ⚙️ What It Does
-Explain the key features and functionalities of your project.
 
 ## 🛠️ How We Built It
 Briefly outline the technologies, frameworks, and tools used in development.
